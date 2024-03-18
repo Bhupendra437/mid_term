@@ -3,6 +3,7 @@ import argparse
 from app.plugins.calc.calculator import Calculator
 from decimal import Decimal, InvalidOperation
 from app.commands import Command
+from app.plugins.calc.calculator.history import add_to_history
 
 class CalcCommand(Command):
     name = 'calc'
@@ -28,6 +29,8 @@ class CalcCommand(Command):
             if operation_function:
                 result = operation_function(a_decimal, b_decimal)
                 print(f"The result of {a} {operation_name} {b} is equal to {result}")
+                expression = f"{a} {operation_name} {b}"
+                add_to_history(expression, result)
             else:
                 print(f"Unknown operation: {operation_name}")
         except InvalidOperation:
