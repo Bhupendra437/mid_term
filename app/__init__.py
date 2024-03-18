@@ -3,6 +3,8 @@ import importlib
 from app.commands import CommandHandler
 from app.commands import Command
 from app.plugins.menu import MenuCommand
+from app.plugins.calc.history_command import HistoryCommand
+from app.plugins.calc import CalcCommand
 
 from decimal import Decimal, InvalidOperation
 class App:
@@ -27,6 +29,8 @@ class App:
         # Register commands here
         self.load_plugins()
         self.command_handler.register_command("menu", MenuCommand(self.command_handler))  # Register the MenuCommand
+        self.command_handler.register_command("calchistory", HistoryCommand())  # Register the HistoryCommand
+        self.command_handler.register_command('calc', CalcCommand())
         print("Type 'exit' to exit.")
         while True:  # REPL Read, Evaluate, Print, Loop
             user_input = input(">>> ").strip().split()  # Split user input into command and arguments

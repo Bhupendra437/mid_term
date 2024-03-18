@@ -3,7 +3,18 @@ import argparse
 from app.plugins.calc.calculator import Calculator
 from decimal import Decimal, InvalidOperation
 from app.commands import Command
-from app.plugins.calc.calculator.history import add_to_history
+from app.plugins.calc.calculator.history import add_to_history, get_history
+
+class HistoryCommand(Command):
+    name = 'calchistory'
+
+    def execute(self, args):
+        history = get_history()
+        if history:
+            for entry in history:
+                print(f"{entry['expression']} = {entry['result']}")
+        else:
+            print("No history available.")
 
 class CalcCommand(Command):
     name = 'calc'
