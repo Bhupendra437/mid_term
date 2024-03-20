@@ -3,13 +3,16 @@ import importlib
 from app.commands import CommandHandler
 from app.commands import Command
 from app.plugins.menu import MenuCommand
+from calculation_history import CalculationHistory
 from app.plugins.calc.history_command import HistoryCommand
 from app.plugins.calc import CalcCommand
+from app.plugins.calc.history_repl_command import HistoryReplCommand
 
 from decimal import Decimal, InvalidOperation
 class App:
     def __init__(self): # Constructor
         self.command_handler = CommandHandler()
+        self.calculation_history = CalculationHistory()
 
     def load_plugins(self):
         # Dynamically load all plugins in the plugins directory
@@ -29,8 +32,9 @@ class App:
         # Register commands here
         self.load_plugins()
         self.command_handler.register_command("menu", MenuCommand(self.command_handler))  # Register the MenuCommand
-        self.command_handler.register_command("calchistory", HistoryCommand())  # Register the HistoryCommand
-        self.command_handler.register_command('calc', CalcCommand())
+        self.command_handler.register_command("calchistory", HistoryCommand(self.calculation_history))  # Register the HistoryCommand
+        self.command_handler.register_command('calc', CalcCommand(self.calculation_history))
+        self.command_handler.register_command('historyrepl', HistoryReplCommand(self.calculation_history))  # Register the HistoryReplCommand
         print("Type 'exit' to exit.")
         while True:  # REPL Read, Evaluate, Print, Loop
             user_input = input(">>> ").strip().split()  # Split user input into command and arguments
