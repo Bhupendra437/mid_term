@@ -1,0 +1,10 @@
+2024-03-22 07:01:07 - DEBUG - Initializing CalculatorREPL
+2024-03-22 07:01:07 - DEBUG - Registering core commands
+2024-03-22 07:01:07 - DEBUG - Loading plugins
+2024-03-22 07:01:07 - INFO - Starting the Calculator REPL.
+2024-03-22 07:01:10 - DEBUG - Received command: menu with args: []
+2024-03-22 07:01:10 - INFO - Executing command: menu
+2024-03-22 07:01:15 - DEBUG - Received command: greet with args: ['someone']
+2024-03-22 07:01:15 - INFO - Executing command: greet
+2024-03-22 07:01:17 - DEBUG - Received command: exit with args: []
+2024-03-22 07:01:17 - INFO - Exiting the Calculator REPL.
