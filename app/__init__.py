@@ -27,17 +27,3 @@ class App:
                             self.command_handler.register_command(plugin_name, item())
                     except TypeError:
                         continue  # If item is not a class or unrelated class, just ignore
-
-    def start(self):
-        # Register commands here
-        self.load_plugins()
-        self.command_handler.register_command("menu", MenuCommand(self.command_handler))  # Register the MenuCommand
-        self.command_handler.register_command("calchistory", HistoryCommand(self.calculation_history))  # Register the HistoryCommand
-        self.command_handler.register_command('calc', CalcCommand(self.calculation_history))
-        self.command_handler.register_command('historyrepl', HistoryReplCommand(self.calculation_history))  # Register the HistoryReplCommand
-        print("Type 'exit' to exit.")
-        while True:  # REPL Read, Evaluate, Print, Loop
-            user_input = input(">>> ").strip().split()  # Split user input into command and arguments
-            command = user_input[0]  # First element is the command
-            args = user_input[1:]  # Rest of the elements are arguments
-            self.command_handler.execute_command(command, args)  # Pass command and arguments to execute_command
