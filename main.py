@@ -1,3 +1,4 @@
+import sys
 import os
 import logging
 from logging.config import fileConfig
@@ -14,32 +15,19 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Access the log level environment variable
+# Access the app environment and log level
+app_env = os.getenv('APP_ENV', 'production')
 log_level = os.getenv('LOG_LEVEL', 'INFO')
 
-# Read the logging.conf file
-with open('logging.conf', 'r') as file:
-    config = file.read()
+# Print the environment variables
+print(f"App Environment: {app_env}")
+print(f"Log Level: {log_level}")
 
-# Replace the placeholder with the actual log level
-config = config.replace('LOG_LEVEL_PLACEHOLDER', log_level)
-
-# Write the modified configuration back to a temporary file
-with open('temp_logging.conf', 'w') as file:
-    file.write(config)
-
-# Load the modified logging configuration
-fileConfig('temp_logging.conf')
-
-# Remove the temporary file
-os.remove('temp_logging.conf')
+# Load the logging configuration
+fileConfig('logging.conf')
 
 # Get a logger for this module
 logger = logging.getLogger(__name__)
-
-# Print the environment variables
-print(f"App Environment: {os.getenv('APP_ENV', 'production')}")
-print(f"Log Level: {log_level}")
 
 class CalculatorREPL:
     def __init__(self):

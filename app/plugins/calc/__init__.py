@@ -38,7 +38,11 @@ class CalcCommand(Command):
             'add': Calculator.add,
             'subtract': Calculator.subtract,
             'multiply': Calculator.multiply,
-            'divide': Calculator.divide
+            'divide': Calculator.divide,
+            '+': Calculator.add,
+            '-': Calculator.subtract,
+            '*': Calculator.multiply,
+            '/': Calculator.divide
         }
 
         try:
