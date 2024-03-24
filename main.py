@@ -17,7 +17,7 @@ load_dotenv()
 
 # Access the app environment and log level
 app_env = os.getenv('APP_ENV', 'production')
-log_level = os.getenv('LOG_LEVEL', 'INFO')
+log_level = os.getenv('LOG_LEVEL', 'ERROR')
 
 # Print the environment variables
 print(f"App Environment: {app_env}")
