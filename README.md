@@ -47,12 +47,8 @@ This approach is used in the execute_command method of the CommandHandler class.
 https://github.com/Bhupendra437/mid_term/blob/main/app/commands/__init__.py
 
 **code snippet-**
-def execute_command(self, command, args):
-    try:
-        self.commands[command].execute(args)
-    except KeyError:
-        print(f"No such command: {command}")
-        logger.error(f"No such command: {command}")
+![image](https://github.com/Bhupendra437/mid_term/assets/157599950/2530dc83-3ad1-4d8a-9790-055900bd07e8)
+
 
 In this code, the try block attempts to execute the command. If the command is not found in the commands dictionary, a KeyError is raised, which is then caught by the except block. This block handles the error by printing an error message and logging the error.
 
