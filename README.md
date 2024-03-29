@@ -47,6 +47,7 @@ This approach is used in the execute_command method of the CommandHandler class.
 https://github.com/Bhupendra437/mid_term/blob/main/app/commands/__init__.py
 
 **code snippet-**
+
 ![image](https://github.com/Bhupendra437/mid_term/assets/157599950/2530dc83-3ad1-4d8a-9790-055900bd07e8)
 
 
