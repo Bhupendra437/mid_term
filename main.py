@@ -1,4 +1,3 @@
-import sys
 import os
 import logging
 from logging.config import fileConfig
@@ -12,18 +11,29 @@ from app.plugins.calc import CalcCommand
 from app.plugins.historyrepl import HistoryReplCommand
 from dotenv import load_dotenv
 
+def update_logging_config():
+    # Read environment variables
+    log_level = os.getenv('LOG_LEVEL', 'DEBUG').upper()
+    log_file = os.getenv('LOG_FILE', 'logs/app.log')
+
+    # Update logging.conf content
+    with open('logging.conf', 'r') as file:
+        config = file.read()
+
+    config = config.replace('level=DEBUG', f'level={log_level}')
+    config = config.replace('args=(\'logs/app.log\', \'a\')', f'args=(\'{log_file}\', \'a\')')
+
+    # Write the updated configuration back to logging.conf
+    with open('logging.conf', 'w') as file:
+        file.write(config)
+
 # Load environment variables from .env file
 load_dotenv()
 
-# Access the app environment and log level
-app_env = os.getenv('APP_ENV', 'production')
-log_level = os.getenv('LOG_LEVEL', 'ERROR')
+# Update logging configuration based on environment variables
+update_logging_config()
 
-# Print the environment variables
-print(f"App Environment: {app_env}")
-print(f"Log Level: {log_level}")
-
-# Load the logging configuration
+# Load the updated logging configuration
 fileConfig('logging.conf')
 
 # Get a logger for this module
