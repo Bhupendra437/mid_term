@@ -31,6 +31,7 @@ By using environment variables in this way, the application is made more flexibl
 
 **Use of logging-**
 In this application, logging is used to record various events that occur during the execution of the program. Here's how you I am using logging in the application:
+
 **1.	Importing the logging module**: At the beginning of 'main.py' file, I imported the logging module and other necessary modules for logging configuration.
 
 **2.	Loading the logging configuration**: I used the 'fileConfig' function from the 'logging.config' module to load the logging configuration from the 'logging.conf' file.
