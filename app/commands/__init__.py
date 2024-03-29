@@ -1,4 +1,7 @@
 from abc import ABC, abstractmethod
+import logging
+
+logger = logging.getLogger('root')
 
 class Command(ABC):
     @abstractmethod
@@ -13,14 +16,8 @@ class CommandHandler:
         self.commands[command_name] = command
 
     def execute_command(self, command, args):
-        """ Look before you leap (LBYL) - Use when its less likely to work
-        if command_name in self.commands:
-            self.commands[command_name].execute()
-        else:
-            print(f"No such command: {command_name}")
-        """
-        """Easier to ask for forgiveness than permission (EAFP) - Use when its going to most likely work"""
         try:
             self.commands[command].execute(args)
         except KeyError:
             print(f"No such command: {command}")
+            logger.error(f"No such command: {command}")

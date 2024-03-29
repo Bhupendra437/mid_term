@@ -16,6 +16,10 @@ def update_logging_config():
     log_level = os.getenv('LOG_LEVEL', 'DEBUG').upper()
     log_file = os.getenv('LOG_FILE', 'logs/app.log')
 
+    # Ensure the directory for the log file exists
+    log_dir = os.path.dirname(log_file)
+    os.makedirs(log_dir, exist_ok=True)
+
     # Update logging.conf content
     with open('logging.conf', 'r') as file:
         config = file.read()
@@ -38,6 +42,7 @@ fileConfig('logging.conf')
 
 # Get a logger for this module
 logger = logging.getLogger(__name__)
+logger.propagate = True
 
 class CalculatorREPL:
     def __init__(self):
