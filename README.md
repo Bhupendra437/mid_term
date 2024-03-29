@@ -32,11 +32,17 @@ By using environment variables in this way, the application is made more flexibl
 **Use of logging-**
 In this application, logging is used to record various events that occur during the execution of the program. Here's how you I am using logging in the application:
 **1.	Importing the logging module**: At the beginning of 'main.py' file, I imported the logging module and other necessary modules for logging configuration.
+
 **2.	Loading the logging configuration**: I used the 'fileConfig' function from the 'logging.config' module to load the logging configuration from the 'logging.conf' file.
+
 **3.	Creating a logger**: A logger instance is created using the 'getLogger' function.
+
 **4.	Using the logger**: Throughout your 'main.py' file, the logger is used to log messages at different levels. For example, 'logger.debug' is used to log debugging information, 'logger.info' to log informational messages, and 'logger.error' to log error messages.
+
 **5.	Logging configuration file** (logging.conf): This file defines the structure and behavior of loggers, handlers, and formatters. It specifies that log messages should be written to a file (logs/app.log) and formatted with a timestamp, log level, and message.
+
 **6.	Dynamic logging**- The logging level can be adjusted dynamically through environment variables as well as 'logging.conf' to control the verbosity of the log output.
+
 Use of logging can record detailed information about application operation, which is invaluable for debugging and monitoring the application's behavior. The log messages are written to a file, making it easy to review them later.
 
 https://github.com/Bhupendra437/mid_term/blob/main/logging.conf
