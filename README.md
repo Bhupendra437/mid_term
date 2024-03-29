@@ -1,3 +1,7 @@
+**Demo Video**-
+
+https://youtu.be/s4tKgKklPK0
+
 **Use of Design patterns-**
 1. **Consistent Structure**: With each plugin having its own directory. This consistency helps with maintainability and understanding the project layout.
 
