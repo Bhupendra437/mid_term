@@ -21,7 +21,9 @@ Overall, the use of design principles helps with well-structured and maintainabl
 **Use of environment variables-**
 
 I've used environment variables to configure certain aspects of the application, specifically the logging configuration. Here's how I've done it:
+
 **Loading Environment Variables**: At the beginning of `main.py`, `load_dotenv()` function is used from the ‘dotenv’ package to load environment variables from a .env file into application's environment.
+
 **Accessing Environment Variables**: These environment variables were accessed using `os.getenv()`. For example, retrieved the application environment and logging level from the environment variables APP_ENV and LOG_LEVEL, respectively.
 
 https://github.com/Bhupendra437/mid_term/blob/main/main.py
