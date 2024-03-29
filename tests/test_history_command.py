@@ -3,7 +3,7 @@
 from unittest.mock import MagicMock
 import pandas as pd
 import pytest
-from app.plugins.calc.history_command import HistoryCommand
+from app.plugins.calchistory import HistoryCommand
 
 def test_history_command_with_empty_history(capsys):
     """

@@ -7,9 +7,9 @@ from app.commands import CommandHandler
 from app.plugins.menu import MenuCommand
 from app.plugins.greet import GreetCommand
 from calculation_history import CalculationHistory
-from app.plugins.calc.history_command import HistoryCommand
+from app.plugins.calchistory import HistoryCommand
 from app.plugins.calc import CalcCommand
-from app.plugins.calc.history_repl_command import HistoryReplCommand
+from app.plugins.historyrepl import HistoryReplCommand
 from dotenv import load_dotenv
 
 # Load environment variables from .env file

@@ -4,9 +4,9 @@ from app.commands import CommandHandler
 from app.commands import Command
 from app.plugins.menu import MenuCommand
 from calculation_history import CalculationHistory
-from app.plugins.calc.history_command import HistoryCommand
+from app.plugins.calchistory import HistoryCommand
 from app.plugins.calc import CalcCommand
-from app.plugins.calc.history_repl_command import HistoryReplCommand
+from app.plugins.historyrepl import HistoryReplCommand
 
 from decimal import Decimal, InvalidOperation
 class App:

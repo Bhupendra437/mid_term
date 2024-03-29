@@ -2,7 +2,7 @@
 
 from unittest.mock import patch, MagicMock
 import pytest
-from app.plugins.calc.history_repl_command import HistoryReplCommand
+from app.plugins.historyrepl import HistoryReplCommand
 
 @pytest.mark.parametrize('user_input, expected_output', [
     (['load', 'exit'], "History loaded."),
