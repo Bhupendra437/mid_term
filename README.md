@@ -1,4 +1,4 @@
-Use of Design patterns-
+**Use of Design patterns-**
 1. **Consistent Structure**: With each plugin having its own directory. This consistency helps with maintainability and understanding the project layout.
 
 2. **DRY Principle (Don't Repeat Yourself)**: The code avoids unnecessary repetition and duplication. For example, in the `CalcCommand` and `HistoryCommand` classes, specific functionalities are encapsulated within methods, and I’ve avoided repeating logic across different parts of the code.
